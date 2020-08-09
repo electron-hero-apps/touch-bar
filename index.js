@@ -127,7 +127,6 @@ const adjustVolume = new TouchBarButton({
 
 		const volumeControl = new TouchBar({
 			items: [
-				esc,
 				slider1,
 				slider2,
 				slider3
@@ -178,21 +177,47 @@ const mainTouchBar = new TouchBar({
 				items: [
 					new TouchBarButton({ label: 'pop1' }),
 					new TouchBarButton({ label: 'pop2' }),
-					segmentedControl
+					segmentedControl,
+					new TouchBarScrubber({
+						selectedStyle: 'outline',
+						mode: 'fixed',
+						showArrowButtons: true,
+						items: [
+							{label: 'one'},
+							{label: 'two'},
+							{label: 'three'},
+							{label: 'four'},
+							{label: 'five'},
+							{label: 'six'},
+							{label: 'seven'},
+							{label: 'eight'},
+							{label: 'nine'},
+							{label: 'ten'}
+						]
+					})
+
+				]
+			})
+		}),
+		new TouchBarPopover({
+			label:'Scrubber',
+			showCloseButton:true,
+			items: new TouchBar({
+				items: [
+					new TouchBarScrubber({
+						selectedStyle: 'background',
+						mode: 'fixed',
+						items: [
+							{label: 'one'},
+							{label: 'two'},
+							{label: 'three'}
+						]
+					})
 				]
 			})
 		})
-
 	]
 })
-
-// const topLevelGroup = new TouchBarGroup({
-// 	items:[
-//        button1
-//     ]
-// })
-
-
 
 setTimeout(function() {
 	currentWindow = remote.getCurrentWindow();
