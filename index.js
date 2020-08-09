@@ -166,7 +166,47 @@ const mainTouchBar = new TouchBar({
 	escapeItem: esc,
     items: [
 		button1,
-		adjustVolume,
+		new TouchBarPopover({
+			label:'Volume',
+			showCloseButton:true,
+			items: new TouchBar({
+				items: [
+					slider1,
+					slider2,
+					slider3
+				]
+			})
+		}),
+		new TouchBarPopover({
+			label:'Popover',
+			showCloseButton:true,
+			items: new TouchBar({
+				items: [
+					new TouchBarButton({ label: 'pop1' }),
+					new TouchBarButton({ label: 'pop2' }),
+					segmentedControl,
+					new TouchBarScrubber({
+						selectedStyle: 'outline',
+						mode: 'fixed',
+						showArrowButtons: true,
+						items: [
+							{label: 'one'},
+							{label: 'two'},
+							{label: 'three'},
+							{label: 'four'},
+							{label: 'five'},
+							{label: 'six'},
+							{label: 'seven'},
+							{label: 'eight'},
+							{label: 'nine'},
+							{label: 'ten'}
+						]
+					})
+
+				]
+			})
+		}),
+
 		colorPicker,
 		authButton,
 		segmentedTouchBar,
