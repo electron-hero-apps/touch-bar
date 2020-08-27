@@ -140,6 +140,7 @@ const adjustVolume = new TouchBarButton({
 
 const popover1 = new TouchBarButton({
 	label: "pop 1",
+	backgroundColor:'#73aee9',
 	click: function(){
 		let currentWindow = remote.getCurrentWindow();
 		currentWindow.setTouchBar(touchBarPopover);
@@ -182,9 +183,11 @@ const mainTouchBar = new TouchBar({
 			showCloseButton:true,
 			items: new TouchBar({
 				items: [
-					new TouchBarButton({ label: 'pop1' }),
-					new TouchBarButton({ label: 'pop2' }),
+					new TouchBarButton({ label: 'pop1', backgroundColor:'#73aee9' }),
+					new TouchBarButton({ label: 'pop2' , backgroundColor:'#73aee9'}),
+					new TouchBarSpacer({ size: 'small'}),
 					segmentedControl,
+					new TouchBarSpacer({ size: 'small'}),
 					new TouchBarScrubber({
 						selectedStyle: 'outline',
 						mode: 'fixed',
